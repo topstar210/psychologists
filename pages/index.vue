@@ -1,5 +1,12 @@
 <template>
   <div class="max-w-screen-2xl px-10 mx-auto py-10">
+    <div class="mb-5">
+      <div>For good communication, hope you to add me telegram or skype</div>
+      Telegram: <a href="https://t.me/AlSmile0210">https://t.me/AlSmile0210</a>
+      <br />
+      Skype: live:.cid.ca372e9fc0b9ef75
+    </div>
+
     <div class="text-2xl mb-4">Psychologists available</div>
     <div class="flex flex-wrap gap-5 items-center mb-10">
       <div class="w-56">
@@ -60,14 +67,18 @@
                 :src="item.photo"
                 alt="Bonnie image"
               />
-              <img src="~assets/icons/play.svg" class="w-10 absolute bottom-3 -right-1" alt="play" />
+              <img
+                src="~assets/icons/play.svg"
+                class="w-10 absolute bottom-3 -right-1"
+                alt="play"
+              />
             </div>
             <h5 class="mb-1 text-xl font-medium text-gray-900">{{ item.name }}</h5>
             <span class="text-sm text-[#b37c37] text-center">
               {{ types[item.type] }}
             </span>
             <div class="text-sm text-center mt-3 opacity-80">
-              {{ item.note.length>93 ? item.note.substring(0, 93)+"..." : item.note }}
+              {{ item.note.length > 93 ? item.note.substring(0, 93) + "..." : item.note }}
             </div>
             <div class="mt-3 text-sm opacity-80">Next sessions on Monday 9th Nov</div>
             <div class="grid grid-cols-3 gap-2 mt-2">
@@ -75,10 +86,18 @@
                 8am
                 <div class="text-[12px] -mt-1">(+$25)</div>
               </button>
-              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">9am</button>
-              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">10am</button>
-              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">11.30am</button>
-              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">12.30am</button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">
+                9am
+              </button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">
+                10am
+              </button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">
+                11.30am
+              </button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">
+                12.30am
+              </button>
               <div class="w-full flex justify-center text-[#b37c37] hover:opacity-80">
                 <button class="">See More</button>
               </div>
