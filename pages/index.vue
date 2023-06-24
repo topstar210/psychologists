@@ -54,47 +54,33 @@
       <div v-for="item in items" class="mx-auto">
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow">
           <div class="flex flex-col items-center p-10">
-            <img
-              class="w-24 h-24 mb-3 rounded-full shadow-lg"
-              :src="item.photo"
-              alt="Bonnie image"
-            />
+            <div class="relative">
+              <img
+                class="w-32 h-32 mb-3 rounded-full shadow-lg"
+                :src="item.photo"
+                alt="Bonnie image"
+              />
+              <img src="~assets/icons/play.svg" class="w-10 absolute bottom-3 -right-1" alt="play" />
+            </div>
             <h5 class="mb-1 text-xl font-medium text-gray-900">{{ item.name }}</h5>
-            <span class="text-sm text-gray-500 text-center">
-              {{ types[item.type] }} Clinical Psychologists</span
-            >
+            <span class="text-sm text-[#b37c37] text-center">
+              {{ types[item.type] }}
+            </span>
             <div class="text-sm text-center mt-3 opacity-80">
-              {{ item.note }}
+              {{ item.note.length>93 ? item.note.substring(0, 93)+"..." : item.note }}
             </div>
             <div class="mt-3 text-sm opacity-80">Next sessions on Monday 9th Nov</div>
-            <div class="flex flex-wrap justify-around gap-1 mt-2">
-              <button
-                class="w-20 py-1 text-sm text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800"
-              >
-                8am(+$25)
+            <div class="grid grid-cols-3 gap-2 mt-2">
+              <button class="text-white bg-[#2a363b] rounded-lg hover:opacity-80">
+                8am
+                <div class="text-[12px] -mt-1">(+$25)</div>
               </button>
-              <button
-                class="w-20 py-1 text-sm text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                9am
-              </button>
-              <button
-                class="w-20 py-1 text-sm text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                10am
-              </button>
-              <button
-                class="w-20 py-1 text-sm text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                11.30am
-              </button>
-              <button
-                class="w-20 py-1 text-sm text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-700 dark:focus:ring-gray-700"
-              >
-                12.30am
-              </button>
-              <div class="w-full flex justify-center">
-                <button class="text-[12px] underline">See More...</button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">9am</button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">10am</button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">11.30am</button>
+              <button class="p-2 bg-[#b37c37] text-white rounded-md hover:opacity-80">12.30am</button>
+              <div class="w-full flex justify-center text-[#b37c37] hover:opacity-80">
+                <button class="">See More</button>
               </div>
             </div>
           </div>
@@ -144,7 +130,9 @@ export default {
           (item) => item.language.indexOf(this.language) > -1
         );
       if (this.name !== "")
-        filteredData = filteredData.filter((item) => item.name.indexOf(this.name) > -1);
+        filteredData = filteredData.filter(
+          (item) => item.name.toLowerCase().indexOf(this.name.toLowerCase()) > -1
+        );
 
       this.items = filteredData;
     },
